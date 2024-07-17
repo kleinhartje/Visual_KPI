@@ -25,3 +25,13 @@ RETURN
         GrowthValue < 0, "Red",
         "Yellow"
     )
+
+Revenue Trend SVG = 
+VAR GrowthValue = [Monthly Revenue Growth Value]
+RETURN
+    SWITCH(
+        TRUE(),
+        GrowthValue > 0, "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'><path fill='green' d='M7 14l5-5 5 5z'/></svg>",
+        GrowthValue < 0, "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'><path fill='red' d='M7 10l5 5 5-5z'/></svg>",
+        "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'><path fill='yellow' d='M8 11h8v2H8z'/></svg>"
+    )
